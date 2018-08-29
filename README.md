@@ -85,3 +85,7 @@ import('<esm_module>').then(esm => {});
 ### How do I import from a folder?
 
 You can use the `package.json::module` field, or an `index.js` or `index.mjs` file.
+
+### How do I customize the loader?
+
+I dunno, yet, but the core semantics are more important.
