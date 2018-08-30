@@ -56,7 +56,7 @@ If you use `index.js` as your entry point, then you can name this file `index.mj
 
 ### As an ESM author, how do I support CJS consumers?
 
-You can install the "esm" package to convert ESM modules to CJS modules at runtime:
+You can install the [esm](https://github.com/standard-things/esm) package to convert ESM modules to CJS modules at runtime:
 
 ```js
 // Point "package.json::main" here
