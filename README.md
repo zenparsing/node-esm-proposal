@@ -15,9 +15,7 @@
 
 ### Node CLI
 
--	A `--module` CLI flag forces Node to execute the entry program as an ESM module.
-- Otherwise, if the entry program has an `.mjs` extension, then Node executes the file as an ESM module.
-- Otherwise, Node executes the file as a CJS module.
+- Node executes the file as an ESM module, automatically inserting local variable definitions for `require`, `__dirname` and `__filename`.
 
 ### Module environment
 
@@ -79,9 +77,17 @@ You should also create a PR against the project as well, so that you and others 
 
 ### How do I use an ESM package from a CJS module?
 
+You can use dynamic import:
+
 ```js
 // Dynamic import
 import('<esm_module>').then(esm => {});
+```
+
+Or you can use [esm](https://github.com/standard-things/esm):
+
+```js
+const esm = require('esm')(module)('<esm_module>');
 ```
 
 ### How do I import from a folder?
@@ -90,4 +96,4 @@ You can use the `package.json::module` field, or an `index.js` or `index.mjs` fi
 
 ### How do I customize the loader?
 
-I dunno, yet, but the core semantics are more important.
+Work in progress.
