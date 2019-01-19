@@ -15,7 +15,7 @@
 
 ### Node CLI
 
-- Node executes the file as an ESM module, automatically inserting local variable definitions for `require`, `__dirname` and `__filename`.
+- If the entry file has import statement or export statements, node will execute the file as ESM. Otherwise it will execute the file as CommonJS.
 
 ### Module environment
 

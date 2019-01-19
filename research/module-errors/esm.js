@@ -1,2 +1,2 @@
-import * as fs from 'fs';
-console.log(fs);
+import Stream from 'stream';
+console.log(Stream);
