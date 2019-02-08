@@ -96,4 +96,32 @@ You can use the `package.json::module` field, or an `index.js` or `index.mjs` fi
 
 ### How do I customize the loader?
 
-Work in progress.
+*Work-in-progress*
+
+The built-in module loader can be customized by adding loader plugins.
+
+```js
+process.addModuleLoaderPlugin({
+
+  async resolve(specifier, baseURL) {
+    // The resolve hook receives the import specifier and
+    // the URL of the module that contains the import declaration
+    // or expression. It may return a fully-qualified URL.
+  },
+
+  async load(url) {
+    // The load hook receives the URL of the module and may return
+    // an object with the following properties:
+    // - source: The JavaScript module source code
+    // - initializeImportMeta (optional): A function that will
+    //   be called when initializing import.meta for the module
+  },
+
+  async translate(source, url) {
+    // The translate hook receives the source code and the URL
+    // of the module. It may return a string containing the
+    // translated source code of the module.
+  }
+
+});
+```
