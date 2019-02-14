@@ -1,6 +1,7 @@
 # A Modest Proposal for ESM in Node
 
-[Implementation](https://github.com/nodejs/node/compare/master...zenparsing:esm-yay)
+- [Implementation](https://github.com/zenparsing/node/tree/node-esm-proposal)
+- [Diff](https://github.com/nodejs/node/compare/master...zenparsing:node-esm-proposal)
 
 ## Assumptions and Principles:
 
