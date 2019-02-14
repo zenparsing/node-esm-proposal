@@ -16,7 +16,7 @@
 
 ### Node CLI
 
-- If the entry file has import statement or export statements, node will execute the file as ESM. Otherwise it will execute the file as CommonJS.
+- If the entry file or a file specified using the `--require/-r` flag has import statement or export statements, node will execute the file as ESM. Otherwise it will execute the file as CommonJS.
 
 ### Module environment
 
