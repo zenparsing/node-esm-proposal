@@ -27,7 +27,7 @@
   - `dirname`: The directory name of the currently executing module.
   - `require`: Allows loading CJS modules.
 
-### Module Resolution
+### Module Import Resolution
 
 - There is no change to `node_modules` resolution for bare specifiers.
 - File extensions are searched as in the current implementation, where `.mjs` is preferred over `.js`.
