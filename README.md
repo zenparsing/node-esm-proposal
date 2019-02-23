@@ -33,7 +33,7 @@
 - File extensions are searched as in the current implementation, where `.mjs` is preferred over `.js`.
 - Both `.js` and `.mjs` files are loaded as ESM modules.
 - If the module specifier resolves to a folder, then
-  - If there is a `package.json` file and that file contains a "module" key, then the package entry point is loaded from that path.
+  - If there is a `package.json` file and that file contains a "main" key, then the package entry point is loaded from that path.
   - Otherwise, the package entry point is loaded by searching for an `index` file.
 
 ## FAQ
@@ -49,9 +49,7 @@ export default import.meta.require('./');
 export const { exportA, exportB } = import.meta.require('./');
 ```
 
-If you use `package.json::main`, then you'll add a "module" key pointing to this file.
-
-If you use `index.js` as your entry point, then you can name this file `index.mjs`.
+You can use the `.mjs` extension for this file.
 
 ### As an ESM author, how do I support CJS consumers?
 
@@ -98,31 +96,3 @@ You can use the `package.json::module` field, or an `index.js` or `index.mjs` fi
 ### How do I customize the loader?
 
 *Work-in-progress*
-
-The built-in module loader can be customized by adding loader plugins.
-
-```js
-process.addModuleLoaderPlugin({
-
-  async resolve(specifier, baseURL) {
-    // The resolve hook receives the import specifier and
-    // the URL of the module that contains the import declaration
-    // or expression. It may return a fully-qualified URL.
-  },
-
-  async load(url) {
-    // The load hook receives the URL of the module and may return
-    // an object with the following properties:
-    // - source: The JavaScript module source code
-    // - initializeImportMeta (optional): A function that will
-    //   be called when initializing import.meta for the module
-  },
-
-  async translate(source, url) {
-    // The translate hook receives the source code and the URL
-    // of the module. It may return a string containing the
-    // translated source code of the module.
-  }
-
-});
-```
